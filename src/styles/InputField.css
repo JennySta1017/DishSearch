@@ -1,0 +1,21 @@
+.btn {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    margin-left: 10px;
+    border: 1px solid black;
+    background-color: aquamarine;
+    border-radius: 5px;
+  
+  }
+  
+  #input {
+    border-radius: 5px;
+    height: 25px;
+    margin: 5px;
+  }
+
+  .listItem {
+    list-style-type: none;
+  
+  }
