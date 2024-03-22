@@ -17,20 +17,19 @@ function InputField({onSearch}) { // funktion för hantering av sökfältet
     })
       
     .catch((error) => console.error('Error fetching food:', error));
-};
+};[]
 
 
 
 return (
         <> 
-        <label>
-        Search a dish:  
+        
         <input 
         type="text" 
+        placeholder=' Search a dish'
         id="input"
         ref = {dishInput} //refererar till värdet i inputfältet
         />
-      </label>
       
       <button  onClick={getFood} className="btn">Search</button> 
       

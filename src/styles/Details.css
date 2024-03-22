@@ -1,0 +1,15 @@
+.detailListItem {
+    list-style-type: none;
+   
+}
+
+#detailList {
+    white-space: pre-line;
+   
+}
+
+.detailBox {
+    width: 50%;
+    text-align: left;
+    
+}
