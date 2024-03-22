@@ -23,7 +23,6 @@ function InputField({onSearch}) { // funktion för hantering av sökfältet
 
 return (
         <> 
-        
         <input 
         type="text" 
         placeholder=' Search a dish'
@@ -32,8 +31,8 @@ return (
         />
       
       <button  onClick={getFood} className="btn">Search</button> 
-      
-   </> );
+      </> 
+    );
 }
 
 export default InputField;

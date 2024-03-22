@@ -3,7 +3,7 @@ import InputField from "./InputField";
 import '../styles/Details.css';
 
 
-function FoodDetailsLink({ meal }) { // Funktion för att hämta detaljer och uppdatera detaljer
+function FoodDetailsLink({ meal }) { // Funktion för att hämta och uppdatera detaljer
     const [details, setDetails] = useState(null);
   
     const fetchDetails = () => {
@@ -19,7 +19,10 @@ function FoodDetailsLink({ meal }) { // Funktion för att hämta detaljer och up
     return (
       <div className="detailBox">
         <ul className='detailListItem'>
-      <li><h2 onClick={fetchDetails}>{meal.strMeal}</h2></li>
+      <li id="clickName">
+        <h2 id="clickText" onClick={fetchDetails}>{meal.strMeal}</h2>
+        <p className="hoverText">Click for more details</p>
+      </li>
       <li><img src={`${meal.strMealThumb}/preview`} alt={meal.strMeal} /></li> 
        </ul> 
 
@@ -29,7 +32,7 @@ function FoodDetailsLink({ meal }) { // Funktion för att hämta detaljer och up
     <ul className='detailListItem'>
       <li><h3>How to cook</h3></li>
       {details.meals[0].strInstructions
-        .replace(/STEP\s*\d+/g, match => `${match}\n`)
+        .replace(/STEP\s*\d+/g, '')
         .split('\n')
         .map((step, index) => (
           <li id='detailList' key={index}>

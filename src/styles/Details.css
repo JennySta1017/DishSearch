@@ -13,3 +13,23 @@
     text-align: left;
     
 }
+
+#clickName {
+    position: relative;
+}
+#clickName h2:hover {
+    cursor: pointer;
+  }
+
+.hoverText {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    padding-top: 5px;
+    font-family: fantasy;
+  }
+
+  #clickName:hover .hoverText {
+    display: block;
+  }
