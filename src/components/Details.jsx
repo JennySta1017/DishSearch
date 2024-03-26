@@ -27,9 +27,20 @@ function FoodDetailsLink({ meal }) { // Funktion för att hämta och uppdatera d
        </ul> 
 
       
-       {details && (
+       {details && details.meals && details.meals[0] && (
   <div> 
     <ul className='detailListItem'>
+        <li><h3>Ingredients</h3></li>
+        {Array.from({ length: 20 }, (_, index) => {
+        const ingredient = details.meals[0][`strIngredient${index + 1}`];
+        return ingredient && ingredient.trim() !== "" && ( // Kontrollera om ingrediensen finns och inte är tom
+          <li key={index}>
+            {ingredient}
+        <br />
+      </li>
+      );
+        })}  
+
       <li><h3>How to cook</h3></li>
       {details.meals[0].strInstructions
         .replace(/STEP\s*\d+/g, '')
