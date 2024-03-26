@@ -3,10 +3,6 @@
    
 }
 
-#detailList {
-    white-space: pre-line;
-   
-}
 
 .detailBox {
     width: 50%;
@@ -26,8 +22,8 @@
     position: absolute;
     top: 100%;
     left: 50%;
-    padding-top: 5px;
-    font-family: fantasy;
+    font-family:The Girl Next door, sans-serif;
+    font-size: 20px;
   }
 
   #clickName:hover .hoverText {
