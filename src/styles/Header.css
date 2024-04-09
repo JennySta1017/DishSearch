@@ -1,18 +1,26 @@
 #header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 100px;
+    height: 130px;
    
     background-color: rgb(49, 176, 29);
     font-family:The Girl Next door, sans-serif;
     font-size: 30px;
 }
 
+#text-header {
+  margin-right: 220px;   
+
+}
 .image-container {
-    position: absolute;
-        top: 0;
-        left: 0;
+    margin-right: auto; 
 }
 
+
 .image-container img {
-    width:30px;
+    width:120px;
+    margin-top: 22px;
+    
 }
