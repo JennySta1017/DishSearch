@@ -6,3 +6,13 @@
     font-family:The Girl Next door, sans-serif;
     font-size: 30px;
 }
+
+.image-container {
+    position: absolute;
+        top: 0;
+        left: 0;
+}
+
+.image-container img {
+    width:30px;
+}
