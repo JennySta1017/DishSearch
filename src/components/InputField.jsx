@@ -31,6 +31,9 @@ return (
         />
       
       <button  onClick={getFood} className="btn">Search</button> 
+      <div className='image-container'>
+        <img src="../../images/dish-logo.jpg" alt="" />
+    </div>
       </> 
     );
 }
