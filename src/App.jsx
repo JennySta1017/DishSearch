@@ -11,9 +11,13 @@ function App() {
     setSearchResult(result);
   };
 
+  const clearSearchResult = () => {
+    setSearchResult(null);
+  };
+
   return (
     <div>
-      <Header />
+      <Header onClearSearch={clearSearchResult}/>
       <InputField onSearch={handleSearch} />
       {searchResult && searchResult.meals && (
         <div>
