@@ -11,7 +11,7 @@
 }
 
 #text-header {
-  margin-right: 220px;   
+  margin-right: 200px;   
 
 }
 .image-container {
@@ -23,4 +23,8 @@
     width:120px;
     margin-top: 22px;
     
+}
+
+.image-container img:hover {
+    cursor: pointer;
 }
