@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'The Girl Next Door';
+    src: url('../fonts/TheGirlNextDoor-Regular.ttf') format('truetype');
+    /* Andra format kan läggas till om du har flera filtyper */
+    font-weight: normal;
+    font-style: normal;
+  }

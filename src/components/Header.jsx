@@ -1,4 +1,5 @@
 import '../styles/Header.css'
+import '../styles/fonts.css'
 
 function Header({ onClearSearch }) {
     const handleImageClick = () => {
