@@ -1,5 +1,4 @@
 import { useState } from "react";
-import InputField from "./InputField";
 import '../styles/Details.css';
 
 
@@ -15,50 +14,81 @@ function FoodDetailsLink({ meal }) { // Funktion för att hämta och uppdatera d
         })
         .catch((error) => console.error('Error fetching food details:', error));
     };
+    let index;
+    const ingredients = [];
+    const measures = [];
+
+    // Loopa igenom ingredienserna och skapa listelement för varje ingrediens
+    index = 1;
+    while (details && details.meals && details.meals[0] && details.meals[0][`strIngredient${index}`]) {
+      const ingredient = details.meals[0][`strIngredient${index}`];
+      if (ingredient.trim() !== "") {
+        ingredients.push(<tr key={index}><td>{ingredient}: </td></tr>);
+      }
+      index++;
+    }
+
+     // Loopa igenom måtten och skapa listelement för varje mått
+     index = 1;
+     while (details && details.meals && details.meals[0] && details.meals[0][`strMeasure${index}`]) {
+       const measure = details.meals[0][`strMeasure${index}`];
+       if (measure.trim() !== "") {
+         measures.push(<tr key={index}><td>{measure}</td></tr>);
+       }
+       index++;
+     }
       
     return (
       <div className="detailBox">
         <ul className='detailListItem'>
-      <li id="clickName">
-        <h2 id="clickText" onClick={fetchDetails}>{meal.strMeal}</h2>
-        <p className="hoverText">Click for more details</p>
-      </li>
-      <li><img src={`${meal.strMealThumb}/preview`} alt={meal.strMeal} /></li> 
+          <li id="clickName">
+          <h2 id="clickText" onClick={fetchDetails}>{meal.strMeal}</h2>
+          <p className="hoverText">Click for more details</p>
+          </li>
+          <li><img src={`${meal.strMealThumb}/preview`} alt={meal.strMeal} /></li> 
        </ul> 
-
       
-       {details && details.meals && details.meals[0] && (
-  <div> 
-    <ul className='detailListItem'>
-        <li><h3>Ingredients</h3></li>
-        {Array.from({ length: 20 }, (_, index) => {
-        const ingredient = details.meals[0][`strIngredient${index + 1}`];
-        return ingredient && ingredient.trim() !== "" && ( // Kontrollera om ingrediensen finns och inte är tom
-          <li key={index}>
-            {ingredient}
-        <br />
-      </li>
-      );
-        })}  
-
-      <li><h3>How to cook</h3></li>
+      {details && details.meals && details.meals[0] && (
+  <div className="detailTable"> 
+    <table>
+      <thead>
+        <tr>
+          <th colSpan="2">Ingredients</th>
+        </tr>
+      </thead>    
+      <tbody>
+        <tr>
+          <td>{ingredients}</td>
+          <td>{measures}</td>
+        </tr>
+      </tbody>
+    </table>
+                  
+    <table>
+      <thead>
+        <tr>
+          <th >How to cook</th>
+        </tr>
+      </thead>
+      <tbody>
       {details.meals[0].strInstructions
         .replace(/STEP\s*\d+/g, '')
         .split('\n')
         .map((step, index) => (
-          <li id='detailList' key={index}>
-            {step.trim()}
-            <br />
-          </li>
+          <tr id='detailList' key={index}>
+            <td>{step.trim()}</td>
+          </tr>
+          
         ))}
-    </ul>
+    </tbody>
+    </table>
   </div>
 )}
         
         
       </div>
     );
-  }
+}
   
   export default FoodDetailsLink;
 

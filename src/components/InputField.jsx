@@ -1,13 +1,13 @@
 import '../styles/InputField.css'
 import {useState, useRef} from 'react'
-import FoodDetailsLink from './Details'
 
 function InputField({onSearch}) { // funktion för hantering av sökfältet
   const dishInput = useRef(null)
 
-  const [result, setResult] = useState(null); // lagring av sökresultat
+  const [result, setResult] = useState(null); // uppdatering av sökresultat
 
-  const getFood = () => {
+  // om sökfältet är tomt - alert
+  const getFood = () => { 
     if (!dishInput.current.value) {
       alert('Search for something!')
       return
@@ -38,9 +38,7 @@ return (
         id="input"
         ref = {dishInput} //refererar till värdet i inputfältet
         />
-      
-      <button  onClick={getFood} className="btn">Search</button> 
-      
+        <button  onClick={getFood} className="btn">Search</button> 
       </div> 
     );
 }

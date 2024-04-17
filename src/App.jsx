@@ -11,6 +11,7 @@ function App() {
     setSearchResult(result);
   };
 
+  // rensar sökning när man klickar på loggan i headern
   const clearSearchResult = () => {
     setSearchResult(null);
   };
