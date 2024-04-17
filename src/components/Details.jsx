@@ -23,7 +23,7 @@ function FoodDetailsLink({ meal }) { // Funktion för att hämta och uppdatera d
     while (details && details.meals && details.meals[0] && details.meals[0][`strIngredient${index}`]) {
       const ingredient = details.meals[0][`strIngredient${index}`];
       if (ingredient.trim() !== "") {
-        ingredients.push(<tr key={index}><td>{ingredient}: </td></tr>);
+        ingredients.push(<td key={`ingredient_${index}`}>{ingredient}: </td>);
       }
       index++;
     }
@@ -33,10 +33,18 @@ function FoodDetailsLink({ meal }) { // Funktion för att hämta och uppdatera d
      while (details && details.meals && details.meals[0] && details.meals[0][`strMeasure${index}`]) {
        const measure = details.meals[0][`strMeasure${index}`];
        if (measure.trim() !== "") {
-         measures.push(<tr key={index}><td>{measure}</td></tr>);
+         measures.push(<td key={`measure_${index}`}>{measure}</td>);
        }
        index++;
      }
+
+     // Skapa separata rader för ingredienser och mått
+const ingredientRows = ingredients.map((ingredient, index) => (
+  <tr key={`ingredient_row_${index}`}>
+    {ingredient}
+    {measures[index]}
+  </tr>
+));
       
     return (
       <div className="detailBox">
@@ -57,13 +65,10 @@ function FoodDetailsLink({ meal }) { // Funktion för att hämta och uppdatera d
         </tr>
       </thead>    
       <tbody>
-        <tr>
-          <td>{ingredients}</td>
-          <td>{measures}</td>
-        </tr>
+        {ingredientRows}
       </tbody>
     </table>
-                  
+     <br />             
     <table>
       <thead>
         <tr>
