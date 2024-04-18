@@ -18,7 +18,7 @@ function FoodDetailsLink({ meal }) { // Funktion för att hämta och uppdatera d
     const ingredients = [];
     const measures = [];
 
-    // Loopa igenom ingredienserna och skapa listelement för varje ingrediens
+    // Loopa igenom ingredienserna och skapa kolumn-element för varje ingrediens
     index = 1;
     while (details && details.meals && details.meals[0] && details.meals[0][`strIngredient${index}`]) {
       const ingredient = details.meals[0][`strIngredient${index}`];
@@ -28,7 +28,7 @@ function FoodDetailsLink({ meal }) { // Funktion för att hämta och uppdatera d
       index++;
     }
 
-     // Loopa igenom måtten och skapa listelement för varje mått
+     // Loopa igenom måtten och skapa kolumn-element för varje mått
      index = 1;
      while (details && details.meals && details.meals[0] && details.meals[0][`strMeasure${index}`]) {
        const measure = details.meals[0][`strMeasure${index}`];
@@ -38,7 +38,7 @@ function FoodDetailsLink({ meal }) { // Funktion för att hämta och uppdatera d
        index++;
      }
 
-     // Skapa separata rader för ingredienser och mått
+     // Skapa rader för ingredienser och mått
 const ingredientRows = ingredients.map((ingredient, index) => (
   <tr key={`ingredient_row_${index}`}>
     {ingredient}
@@ -57,24 +57,26 @@ const ingredientRows = ingredients.map((ingredient, index) => (
        </ul> 
       
       {details && details.meals && details.meals[0] && (
-  <div className="detailTable"> 
-    <table>
+    <div className="detailTable"> 
+      <table>
       <thead>
         <tr>
           <th colSpan="2">Ingredients</th>
         </tr>
-      </thead>    
+      </thead> 
+         
       <tbody>
         {ingredientRows}
       </tbody>
-    </table>
+      </table>
      <br />             
-    <table>
+      <table>
       <thead>
         <tr>
           <th >How to cook</th>
         </tr>
       </thead>
+      
       <tbody>
       {details.meals[0].strInstructions
         .replace(/STEP\s*\d+/g, '')
@@ -82,17 +84,14 @@ const ingredientRows = ingredients.map((ingredient, index) => (
         .map((step, index) => (
           <tr id='detailList' key={index}>
             <td>{step.trim()}</td>
-          </tr>
-          
+          </tr>          
         ))}
     </tbody>
     </table>
   </div>
-)}
-        
-        
-      </div>
-    );
+)}              
+  </div>
+);
 }
   
   export default FoodDetailsLink;

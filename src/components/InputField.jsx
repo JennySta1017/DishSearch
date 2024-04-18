@@ -6,10 +6,10 @@ function InputField({onSearch}) { // funktion för hantering av sökfältet
 
   const [result, setResult] = useState(null); // uppdatering av sökresultat
 
-  // om sökfältet är tomt - alert
+  
   const getFood = () => { 
-    if (!dishInput.current.value) {
-      alert('Search for something!')
+    if (!dishInput.current.value) {   
+      alert('Search for something!')   // om sökfältet är tomt - alert
       return
     }
 
@@ -17,7 +17,7 @@ function InputField({onSearch}) { // funktion för hantering av sökfältet
     .then((response) => response.json())
     .then((data) => {
       if (!data.meals) {
-        alert('No food found, try again!')
+        alert('No food found, try again!') // om input inte matchar en maträtt - alert
         return
       }
       setResult(data);

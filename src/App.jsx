@@ -1,10 +1,12 @@
-import { useState, useRef } from 'react'
-import './styles/App.css'
+
+import { useState } from 'react';
+import './styles/App.css';
 import InputField from './components/InputField'
 import FoodDetailsLink from './components/Details';
 import Header from './components/Header';
 
 function App() {
+
   const [searchResult, setSearchResult] = useState(null);
 
   const handleSearch = (result) => {
